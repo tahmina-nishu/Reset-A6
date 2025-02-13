@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet</title>
+
     <!-- favicon link  -->
      <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon">
+
     <!-- DaisyUi Tailwind link  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- CSS link  -->
      <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -16,7 +19,7 @@
     <!-- Header part -->
     <header>
         <!-- nav bar -->
-        <nav class="w-11/12 mx-auto py-3 flex justify-between items-center border-b px-5">
+        <nav class="w-10/12 mx-auto py-3 flex justify-between items-center border-b px-5">
             <!-- Logo  -->
             <div class="logo flex gap-3">
                 <img class="w-10 h-8" src="images/logo.webp">
@@ -40,21 +43,40 @@
             <p class="text-[#13131399] text-xl font-bold">Bringing Families Together ❤️‍🔥</p>
             <h1 class="text-[#131313] text-5xl font-extrabold">Your Path to Adoption Starts Here</h1>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
-            <button class="text-white text-xl font-bold bg-[#0E7A81] w-44 px-8 py-4 rounded-lg">View More</button>
+            <a href="#main"><button class="text-white text-xl font-bold bg-[#0E7A81] w-44 px-8 py-4 rounded-lg">View More</button></a>
             <img src="images/pet.webp" class="w-3/5">
          </div>
     </header>
+
     <!-- main part -->
     <main>
+    <main id="main">
         <!-- title div  -->
         <div class="text-center space-y-3 w-2/5 mx-auto mb-10">
             <h1 class="text-[#131313] text-4xl font-extrabold">Adopt  Your  Best Friend</h1>
             <p class="text-[#131313B3]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
         </div>
+
         <!-- Category div  -->
         <div id="categories">
+        <div id="categories" class=" w-10/12 flex justify-between text-2xl text-[#131313] font-bold mx-auto">
+
         </div>
+        <div class="w-10/12 mx-auto py-3 flex justify-between items-center">
+            <h3 class="text-2xl font-bold">Best Deal For you</h3>
+            <button class="text-white font-bold bg-[#0E7A81] px-6 py-2 rounded-lg my-10">Sort by Price</button>
+        </div>
+        <!-- pet container -->
+         <div class="w-10/12  py-10 mx-auto flex gap-5">
+            <!-- all pets  -->
+            <div id="pet-container" class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto justify-between">
+            </div>
+            <!-- selected pets -->
+             <div class="border-2 border-[#1313131A] w-1/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-lg">
+             </div>
+         </div>
     </main>
+
     <!-- footer part  -->
     <footer class="footer bg-black text-[#FFFFFF99] py-10 items-center justify-around">
         <nav>
@@ -87,6 +109,8 @@
           <button class="text-white font-bold bg-[#0E7A81] w-44 px-8 py-2 rounded-lg">Subscribe</button>
         </nav>
     </footer>
+
+    
     <!-- Scripts  -->
      <script src="scripts/index.js"></script>
 </body>
