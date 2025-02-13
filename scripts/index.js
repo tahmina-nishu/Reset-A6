@@ -1,9 +1,7 @@
 const loadCategories = () => {
     //Fetch the data
-    fetch('https://openapi.programming-hero.com/api/peddy/pets')
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
     .then((res) => res.json())
-    .then((data) => console.log(data.categories))
     .then((data) => displayCategories(data.categories))
     .catch((error) => console.log(error));
 }
@@ -15,7 +13,7 @@ const displayCategories = (categories) => {
     console.log(item);
         const categoryContainer = document.createElement('div');
         categoryContainer.innerHTML = `
-        <button onclick="loadCategoryPets('${item.category}')" class="w-[160px] hover:bg-[#0E7A811A] border-2 border-[#0E7A811A] hover:rounded-full py-2 flex justify-center items-center">
+        <button id="category-btn-${item.category}" onclick="loadCategoryPets('${item.category}')" class="category-button w-[160px] hover:bg-[#0E7A811A] border-2 border-[#0E7A811A] hover:rounded-full py-2 flex justify-center items-center">
             <div class="flex gap-3"><img class="w-8" src="${item.category_icon}">${item.category}</div>
         </button>
        `;
@@ -32,6 +30,22 @@ const displayPets = (pets) => {
     console.log(pets);
     const petsContainer = document.getElementById('pet-container');
     petsContainer.innerHTML = "";
+    // category te kono item na thakle error msg show korbe. tkhn grid ta remove kore dibe
+    if(pets.length == 0){
+        petsContainer.classList.remove('grid');
+        petsContainer.innerHTML = `
+        <div class="text-center px-20 py-36 min-h-[400px] w-full flex flex-col gap-5 justify-center items-center bg-[#13131308] rounded-2xl">
+            <img src="images/error.webp" />
+            <h2 class="text-3xl font-bold"> No Information Available </h2>
+            <p class="text-[#131313B3]"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        </div>
+        `;
+        return;
+    }
+    else
+        petsContainer.classList.add('grid');
+    
+    //item gulo add korbe
     pets.forEach((pet) => {
     console.log(pet);
         const petContainer = document.createElement('div');
@@ -61,10 +75,24 @@ const loadCategoryPets = (categoryName) => {
     console.log(categoryName);
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryName}`)
     .then((res) => res.json())
-    .then((datas) => displayPets(datas.data))
+    .then((datas) => {
+        removeActiveClass();
+        const activeButton = document.getElementById(`category-btn-${categoryName}`)
+        activeButton.classList.add('activeClass') ;
+        
+        displayPets(datas.data)
+    })
     .catch((error) => console.log(error));
 }
 
-loadCategories();
+// remove active class
+const removeActiveClass = () => {
+    const buttons = document.getElementsByClassName("category-button");
+    console.log(buttons);
+    for(let btn of buttons){
+       btn.classList.remove('activeClass');
+    }
+}
+
 loadCategories();
 loadPets();
