@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet</title>
+    <!-- favicon link  -->
+     <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon">
+    <!-- DaisyUi Tailwind link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CSS link  -->
+     <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Header part -->
+    <header>
+        <!-- nav bar -->
+        <nav class="w-11/12 mx-auto py-3 flex justify-between items-center border-b px-5">
+            <!-- Logo  -->
+            <div class="logo flex gap-3">
+                <img class="w-10 h-8" src="images/logo.webp">
+                <h1 class="text-3xl font-extrabold">Peddy</h1>
+            </div>
+            <!--   -->
+            <div class="font-semibold">
+                <ul class="flex gap-8">
+                    <li>Home</li>
+                    <li>Shop</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <!-- Profile  -->
+            <div>
+                <button class="w-10"><img src="https://img.icons8.com/windows/64/user-male-circle.png"></button>
+            </div>
+        </nav>
+        <!-- Banner -->
+         <div id="banner" class="text-center flex flex-col items-center justify-center gap-11 w-2/4 mx-auto py-11">
+            <p class="text-[#13131399] text-xl font-bold">Bringing Families Together ❤️‍🔥</p>
+            <h1 class="text-[#131313] text-5xl font-extrabold">Your Path to Adoption Starts Here</h1>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            <button class="text-white text-xl font-bold bg-[#0E7A81] w-44 px-8 py-4 rounded-lg">View More</button>
+            <img src="images/pet.webp" class="w-3/5">
+         </div>
+    </header>
+    <!-- main part -->
+    <main>
+        <!-- title div  -->
+        <div class="text-center space-y-3 w-2/5 mx-auto mb-10">
+            <h1 class="text-[#131313] text-4xl font-extrabold">Adopt  Your  Best Friend</h1>
+            <p class="text-[#131313B3]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        </div>
+        <!-- Category div  -->
+        <div id="categories">
+        </div>
+    </main>
+    <!-- footer part  -->
+    <footer class="footer bg-black text-[#FFFFFF99] py-10 items-center justify-around">
+        <nav>
+            <div class="logo flex gap-3 items-center mb-3">
+                <img class="w-8 h-6" src="images/logo.webp">
+                <h1 class="text-2xl text-[#FFFFFFE6] font-extrabold">Peddy</h1>
+            </div>
+          <a class="link link-hover">Location: av. Washington 165, NY CA 54003</a>
+          <a class="link link-hover">Phone: +31 85 964 47 25</a>
+          <a class="link link-hover">Email: info@yourdomain.com</a>
+          <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+          <div class="flex gap-3">
+            <a href=""><img class="w-10" src="https://img.icons8.com/?size=48&id=uLWV5A9vXIPu&format=png"> </a>
+            <a href=""><img class="w-10" src="images/twitter-logo-png.png"> </a>
+            <a href=""><img class="w-10" src="https://img.icons8.com/?size=48&id=19318&format=png"> </a>
+            <a href=""><img class="w-10" src="https://img.icons8.com/?size=48&id=Xy10Jcu1L2Su&format=png"> </a>
+          </div>
+        </nav>
+        <nav>
+          <h6 class="text-xl font-bold text-[#FFFFFFE6] mb-3">Useful Links</h6>
+          <a class="link link-hover">Home</a>
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Animals</a>
+          <a class="link link-hover">Foundation</a>
+          <a class="link link-hover">Contact</a>
+        </nav>
+        <nav>
+          <h6 class="text-xl font-bold text-[#FFFFFFE6]  mb-3">Drop a Message</h6>
+          <input type="email" placeholder="Enter your email" class="text-black w-44 px-2 py-2 rounded-lg bg-[#FFFFFF33]">
+          <button class="text-white font-bold bg-[#0E7A81] w-44 px-8 py-2 rounded-lg">Subscribe</button>
+        </nav>
+    </footer>
+    <!-- Scripts  -->
+     <script src="scripts/index.js"></script>
+</body>
+</html>
