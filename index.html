@@ -19,15 +19,15 @@
     <!-- Header part -->
     <header>
         <!-- nav bar -->
-        <nav class="w-10/12 mx-auto py-3 flex justify-between items-center border-b px-5">
+        <nav class="w-10/12 mx-auto py-3 flex justify-between items-center border-b px-2">
             <!-- Logo  -->
-            <div class="logo flex gap-3">
-                <img class="w-10 h-8" src="images/logo.webp">
-                <h1 class="text-3xl font-extrabold">Peddy</h1>
+            <div class="logo flex gap-3 items-center">
+                <img class="w-7 h-5 lg:w-10 lg:h-8" src="images/logo.webp">
+                <h1 class="text-xl md:text-2xl lg:text-3xl font-extrabold">Peddy</h1>
             </div>
             <!--   -->
             <div class="font-semibold">
-                <ul class="flex gap-8">
+                <ul class="flex gap-4 md:gap-6 lg:gap-8">
                     <li>Home</li>
                     <li>Shop</li>
                     <li>Contact</li>
@@ -35,11 +35,11 @@
             </div>
             <!-- Profile  -->
             <div>
-                <button class="w-10"><img src="https://img.icons8.com/windows/64/user-male-circle.png"></button>
+                <button class="w-7 md:w-8 lg:w-10"><img src="https://img.icons8.com/windows/64/user-male-circle.png"></button>
             </div>
         </nav>
         <!-- Banner -->
-         <div id="banner" class="text-center flex flex-col items-center justify-center gap-11 w-2/4 mx-auto py-11">
+        <div id="banner" class="text-center flex flex-col items-center justify-center gap-11 w-3/4 lg:w-2/4 mx-auto py-11">
             <p class="text-[#13131399] text-xl font-bold">Bringing Families Together ❤️‍🔥</p>
             <h1 class="text-[#131313] text-5xl font-extrabold">Your Path to Adoption Starts Here</h1>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
@@ -51,13 +51,13 @@
     <!-- main part -->
     <main id="main">
         <!-- title div  -->
-        <div class="text-center space-y-3 w-2/5 mx-auto mb-10">
+        <div class="text-center space-y-3 w-4/5 lg:w-3/5 mx-auto mb-10">
             <h1 class="text-[#131313] text-4xl font-extrabold">Adopt  Your  Best Friend</h1>
             <p class="text-[#131313B3]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
         </div>
 
         <!-- Category div  -->
-        <div id="categories" class=" w-10/12 flex justify-between text-2xl text-[#131313] font-bold mx-auto">
+        <div id="categories" class=" w-10/12 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-4 justify-between text-2xl text-[#131313] font-bold mx-auto">
 
         </div>
         <div class="w-10/12 mx-auto py-3 flex justify-between items-center">
@@ -70,11 +70,25 @@
             <div id="pet-container" class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto justify-between">
             </div>
             <!-- selected pets -->
-             <div class="border-2 border-[#1313131A] w-1/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-lg">
-             </div>
+            <div id="selected-pets" class="border-2 border-[#1313131A] w-1/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-lg gap-3 p-2 h-fit">
          </div>
     </main>
 
+    <!-- Open the modal using ID.showModal() method -->
+    <button id="showModalData" class="btn hidden" onclick="customModal.showModal()">open modal</button>
+    <dialog id="customModal" class="modal"> <!--  modal er id te hyphen use kora jayna -->
+      <div class="modal-box">
+        <div id="modal-content">
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="w-[380px] md:w-[400px] lg:w-[460px] px-auto py-1 bg-[#0E7A811A] border-2 border-[#0E7A8133] rounded-lg text-[#0E7A81] text-lg font-bold">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    
     <!-- footer part  -->
     <footer class="footer bg-black text-[#FFFFFF99] py-10 items-center justify-around">
         <nav>
