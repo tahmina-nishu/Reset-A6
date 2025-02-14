@@ -50,7 +50,7 @@ const displayPets = (pets) => {
         <div class="text-center px-20 py-36 min-h-[400px] w-full flex flex-col gap-5 justify-center items-center bg-[#13131308] rounded-2xl">
             <img src="images/error.webp" />
             <h2 class="text-3xl font-bold"> No Information Available </h2>
-            <p class="text-[#131313B3]"> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            <p class="text-[#131313B3]"> Currently, there is no specific information available about keeping birds as pets. This may be due to a lack of research or detailed studies on the subject. For those interested in adopting birds, it's important to gather relevant details from reliable sources, such as veterinarians, pet care experts, or bird enthusiasts.</p>
         </div>
         `;
         return;
@@ -76,7 +76,7 @@ const displayPets = (pets) => {
                 <p class="text-[#131313B3]">Price  : ${pet.price} $</p>
                 <div class="card-actions">
                     <button onclick="loadLikedPets(${pet.petId})" class="px-4 py-1 rounded-lg border-2 border-[#0E7A8126] text-[#0E7A81] font-bold"><img class="w-10" src="https://static.vecteezy.com/system/resources/previews/021/013/524/original/like-icon-on-transparent-background-free-png.png"></button>
-                    <button class="px-4 py-1 rounded-lg border-2 border-[#0E7A8126] text-[#0E7A81] font-bold">Adopt</button>
+                    <button onclick="adopt(this)" class="px-4 py-1 rounded-lg border-2 border-[#0E7A8126] text-[#0E7A81] font-bold">Adopt</button>
                     <button onclick="loadDetails(${pet.petId})" class="px-4 py-1 rounded-lg border-2 border-[#0E7A8126] text-[#0E7A81] font-bold"> Details </button>
                 </div>
             </div>
@@ -191,5 +191,26 @@ const sortByPrice = () => {
     const sortedPet = pets.sort((a, b) => b.price - a.price)
     displayPets(sortedPet);
 }
+
+//----------------bonus-3 : Adopt Button Behavior-----------------------
+const adopt = event => {
+    let count = 3;
+    const countNumber = document.getElementById('countdown');
+    countNumber.innerText = count;
+    my_modal_5.showModal()
+    const interval = setInterval(() => {
+        count--;
+        if(count != 0){
+            countNumber.innerText = count;
+        }
+        if(count === 0){
+            clearInterval(interval)
+            my_modal_5.close()
+            event.innerText = 'Adopted'
+            event.disabled = true; 
+        }
+    },1000)
+}
+
 loadCategories();
 loadPets();
