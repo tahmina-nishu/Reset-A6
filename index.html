@@ -62,8 +62,14 @@
         </div>
         <div class="w-10/12 mx-auto py-3 flex justify-between items-center">
             <h3 class="text-2xl font-bold">Best Deal For you</h3>
-            <button class="text-white font-bold bg-[#0E7A81] px-6 py-2 rounded-lg my-10">Sort by Price</button>
+            <button onclick="sortByPrice()" class="text-white font-bold bg-[#0E7A81] px-6 py-2 rounded-lg my-10">Sort by Price</button>
         </div>
+
+        <!-- spinner  -->
+        <div id="spinner" class="flex justify-center hidden">
+          <span class="loading loading-bars loading-lg"></span>
+        </div>
+
         <!-- pet container -->
          <div class="w-10/12  py-10 mx-auto flex gap-5">
             <!-- all pets  -->

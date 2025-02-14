@@ -1,3 +1,5 @@
+
+// -----------------------------loadCategories()-------------------------
 const loadCategories = () => {
     //Fetch the data
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
@@ -6,6 +8,7 @@ const loadCategories = () => {
     .catch((error) => console.log(error));
 }
 
+// --------------------------displayCategories()-------------------------
 const displayCategories = (categories) => {
     const categoriesContainer = document.getElementById('categories');
     
@@ -20,12 +23,22 @@ const displayCategories = (categories) => {
         categoriesContainer.appendChild(categoryContainer);
     });
 }
+
+// -----------------------------loadPets()-------------------------
 const loadPets = () => {
+    loadingSpinner(true);
     fetch("https://openapi.programming-hero.com/api/peddy/pets")
-    .then((res) => res.json())
-    .then((data) => displayPets(data.pets))
+    .then((res) => res.json()).then((data) => {
+        setTimeout (() => {
+            displayPets(data.pets)
+            loadingSpinner(false);
+        },2000)
+        pets = data.pets;
+    }).then((data) => displayPets(data.pets))
     .catch((error) => console.log(error));
 }
+
+// -----------------------------displayPets()-------------------------
 const displayPets = (pets) => {
     console.log(pets);
     const petsContainer = document.getElementById('pet-container');
@@ -71,8 +84,11 @@ const displayPets = (pets) => {
         petsContainer.appendChild(petContainer);
     });
 }
+
+// ---------------------------loadCategoryPets()-------------------------
 const loadCategoryPets = (categoryName) => {
     console.log(categoryName);
+    loadingSpinner(true);
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryName}`)
     .then((res) => res.json())
     .then((datas) => {
@@ -80,12 +96,16 @@ const loadCategoryPets = (categoryName) => {
         const activeButton = document.getElementById(`category-btn-${categoryName}`)
         activeButton.classList.add('activeClass') ;
         
-        displayPets(datas.data)
+        setTimeout (() => {
+            displayPets(datas.data)
+            loadingSpinner(false);
+        },2000)
+        pets = datas.data;
     })
     .catch((error) => console.log(error));
 }
 
-// remove active class
+// --------------------------removeActiveClass()-------------------------
 const removeActiveClass = () => {
     const buttons = document.getElementsByClassName("category-button");
     console.log(buttons);
@@ -94,6 +114,7 @@ const removeActiveClass = () => {
     }
 }
 
+// -----------------------------loadDetails()-------------------------
 const loadDetails = async (petId) =>{
     console.log(petId);
     const uri = `https://openapi.programming-hero.com/api/peddy/pet/${petId}`;
@@ -102,6 +123,8 @@ const loadDetails = async (petId) =>{
     showDetails(data.
         petData);
 }
+
+// -----------------------------showDetails()-------------------------
 const showDetails = (pets) => {
     console.log(pets);
     const detailsContainer = document.getElementById('modal-content');
@@ -129,6 +152,8 @@ const showDetails = (pets) => {
     `;
     document.getElementById('showModalData').click();
 }
+
+// -----------------------------loadLikedPets()-------------------------
 const loadLikedPets = async (petId) =>{
     console.log(petId);
     const uri = `https://openapi.programming-hero.com/api/peddy/pet/${petId}`;
@@ -137,6 +162,8 @@ const loadLikedPets = async (petId) =>{
     addLikedPets(data.
         petData);
 }
+
+// -----------------------------addLikedPets()-------------------------
 const addLikedPets = (pet) => {
     const imageContainer = document.getElementById('selected-pets');
     
@@ -147,5 +174,22 @@ const addLikedPets = (pet) => {
     imageContainer.appendChild(likedPet);
 }
 
+//--------------------bonus-1 : loading spinner------------------------
+const loadingSpinner = (show) => {
+    const spinner = document.getElementById('spinner');
+    if(show){
+        document.getElementById('pet-container').innerHTML = " ";
+        spinner.classList.remove('hidden');
+    }
+    else{
+        spinner.classList.add('hidden');
+    }
+}
+//-------------------bonus-2 : handle sort button---------------------
+const sortByPrice = () => {
+    console.log(pets)
+    const sortedPet = pets.sort((a, b) => b.price - a.price)
+    displayPets(sortedPet);
+}
 loadCategories();
 loadPets();
