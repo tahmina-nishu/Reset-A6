@@ -25,24 +25,43 @@
                 <img class="w-7 h-5 lg:w-10 lg:h-8" src="images/logo.webp">
                 <h1 class="text-xl md:text-2xl lg:text-3xl font-extrabold">Peddy</h1>
             </div>
+
             <!--   -->
-            <div class="font-semibold">
+            <div class="font-semibold hidden md:inline lg:inline">
                 <ul class="flex gap-4 md:gap-6 lg:gap-8">
                     <li>Home</li>
                     <li>Shop</li>
                     <li>Contact</li>
                 </ul>
             </div>
+
             <!-- Profile  -->
             <div>
-                <button class="w-7 md:w-8 lg:w-10"><img src="https://img.icons8.com/windows/64/user-male-circle.png"></button>
+                <button class="w-7 md:w-8 lg:w-10 hidden md:inline lg:inline"><img src="https://img.icons8.com/windows/64/user-male-circle.png"></button>
             </div>
+
+            <!-- menu bar -->
+            <div class="navbar py-5 lg:hidden md:hidden">
+              <div class="font-semibold dropdown absolute right-8 lg:hidden">
+                  <div tabindex="0" role="button" class=" lg:hidden ">
+                    <img class="w-4" src="images/menu.png" alt="">
+                  </div>
+                  <ul tabindex="0"
+                    class="flex gap-4 md:gap-6 lg:gap-8 menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow right-0">
+                    <li>Home</li>
+                    <li>Shop</li>
+                    <li>Contact</li>
+                  </ul>
+                </div>
+            </div>
+        </div>
         </nav>
+
         <!-- Banner -->
-        <div id="banner" class="text-center flex flex-col items-center justify-center gap-11 w-3/4 lg:w-2/4 mx-auto py-11">
+         <div id="banner" class="text-center flex flex-col items-center justify-center gap-11 w-3/4 lg:w-2/4 mx-auto py-11">
             <p class="text-[#13131399] text-xl font-bold">Bringing Families Together ❤️‍🔥</p>
             <h1 class="text-[#131313] text-5xl font-extrabold">Your Path to Adoption Starts Here</h1>
-            <p>Are you ready to welcome a new furry friend into your home? Adoption is a wonderful way to give a loving animal a second chance at life</p>
+            <p>Are you ready to welcome a new furry friend into your home? Adoption is a wonderful way to give a loving animal a second chance at life</p>
             <a href="#main"><button class="text-white text-xl font-bold bg-[#0E7A81] w-44 px-8 py-4 rounded-lg">View More</button></a>
             <img src="images/pet.webp" class="w-3/5">
          </div>
@@ -57,26 +76,33 @@
         </div>
 
         <!-- Category div  -->
+
         <div id="categories" class=" w-10/12 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-4 justify-between text-2xl text-[#131313] font-bold mx-auto">
 
         </div>
+
         <div class="w-10/12 mx-auto py-3 flex justify-between items-center">
             <h3 class="text-2xl font-bold">Best Deal For you</h3>
             <button onclick="sortByPrice()" class="text-white font-bold bg-[#0E7A81] px-6 py-2 rounded-lg my-10">Sort by Price</button>
         </div>
 
-        <!-- spinner  -->
-        <div id="spinner" class="flex justify-center hidden">
-          <span class="loading loading-bars loading-lg"></span>
-        </div>
+        
+            <!-- spinner  -->
+            <div id="spinner" class="flex justify-center hidden">
+              <span class="loading loading-bars loading-lg"></span>
+            </div>
 
         <!-- pet container -->
          <div class="w-10/12  py-10 mx-auto flex gap-5">
             <!-- all pets  -->
             <div id="pet-container" class="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto justify-between">
+
             </div>
+
             <!-- selected pets -->
-            <div id="selected-pets" class="border-2 border-[#1313131A] w-1/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-lg gap-3 p-2 h-fit"> </div>
+             <div id="selected-pets" class="border-2 border-[#1313131A] w-1/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 rounded-lg gap-3 p-2 h-fit">
+
+             </div>
          </div>
     </main>
 
@@ -85,7 +111,9 @@
     <dialog id="customModal" class="modal"> <!--  modal er id te hyphen use kora jayna -->
       <div class="modal-box">
         <div id="modal-content">
+
         </div>
+
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
@@ -94,18 +122,20 @@
         </div>
       </div>
     </dialog>
-    
-    <!-- Adoption Modal  -->
+
+    <!-- Adopt Modal  -->
+
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
         <div id="modal-content" class="flex flex-col gap-3 items-center justify-center">
-          <img class="h-52 w-52 mt-10" src="images/handshake.jpg">
-          <h2 class="text-2xl font-bold">Congratulations!</h2>
-          <p>adoption will be done in</p>
+          <img class="mt-10" src="images/icons8-heart-balloon.gif">
+          <h2 class="text-3xl font-bold">Congrates!</h2>
+          <p class="font-bold">Adoption process is start for your pet in</p>
           <p id="countdown" class="text-5xl font-bold mb-10">3</p>
         </div>
       </div>
     </dialog>
+
 
     <!-- footer part  -->
     <footer class="footer bg-black text-[#FFFFFF99] py-10 items-center justify-around">
@@ -140,7 +170,9 @@
         </nav>
     </footer>
 
+
     
+
     <!-- Scripts  -->
      <script src="scripts/index.js"></script>
 </body>

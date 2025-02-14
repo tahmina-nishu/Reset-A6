@@ -3,9 +3,8 @@
 *{
     font-family: Lato;
 }
-.category-btn{
-    background-color: rgba(14, 122, 129, 0.1);
-    width: 160px;
-    border-radius: 50px;
-    
+
+.activeClass{
+    background-color: #0E7A811A;
+    border-radius: 100px;
 }
